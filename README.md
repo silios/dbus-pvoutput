@@ -27,9 +27,10 @@ other systems is left as an exercise to the user.
 * Use dbus-pvoutput-p3.py VenusOS 2.80 and later
 * Copy the 2 files, config.ini and dbus-pvoutput.py or dbus-pvoutput-p3.py 
   depending on your VenusOS to you GX Device, with scp.
-* Make sure you modify the config.ini with your correct settings.
+* Make sure you modify the config.ini with your correct settings. Config.ini NEEDS to have proper permissions to avoid errors.
 * Login to your GX Device and then you run the script: python bus-pvoutput-p3.py
 * To be able to run the script and logout out you can use this: "nohup python dbus-pvoutput-p3.py &"
   NOTE: if GX reboots you need to run the script again or you need to add the script so that it 
   runs on reboot as well.
+* Add the above line to /data/rc.local so it runs on every boot
    
