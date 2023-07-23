@@ -15,8 +15,7 @@ other systems is left as an exercise to the user.
 
 ## Other caveats
 
-* It uses the timezone information from the CCGX settings, not the system
-  timezone.
+* It uses the timezone information from the CCGX settings, not the system timezone.
 * You have to add your APIKEY and SYSTEMID in the config.ini
 * If you want to enable weather information, register on 
   openweathermap.org then add apikey and cityid in config.ini
@@ -27,10 +26,12 @@ other systems is left as an exercise to the user.
 * Use dbus-pvoutput-p3.py VenusOS 2.80 and later
 * Copy the 2 files, config.ini and dbus-pvoutput.py or dbus-pvoutput-p3.py 
   depending on your VenusOS to you GX Device, with scp.
-* Make sure you modify the config.ini with your correct settings. Config.ini NEEDS to have proper permissions to avoid errors.
+* Make sure you modify the config.ini with your correct settings.
 * Login to your GX Device and then you run the script: python bus-pvoutput-p3.py
 * To be able to run the script and logout out you can use this: "nohup python dbus-pvoutput-p3.py &"
   NOTE: if GX reboots you need to run the script again or you need to add the script so that it 
   runs on reboot as well.
-* Add the above line to /data/rc.local so it runs on every boot
+* FIX permissions of script : chmod ug+x /data/home/root/dbus-pvoutput/dbus-pvoutput-p3.py
+* Config.ini NEEDS to have proper permissions to avoid errors. i had to chmod 777 in order to stop the nosection found error....
+* Add to /data/rc.local so it runs on every boot this : su root -c "screen -dm -S pvoutput python /data/home/root/dbus-pvoutput/dbus-pvoutput-p3.py"
    
