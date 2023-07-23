@@ -32,10 +32,10 @@ def get_pvoutput_systemid(config):
     return config.get('dvoutput.org','SYSTEMID')
 
 def get_api_key(config):
-    return config.get('openweathermap','api')
+    return config.get('openweathermap','API')
 
 def get_city_id(config):
-    return config.get('openweathermap','cityid')
+    return config.get('openweathermap','CITYID')
 
 def requests_retry_session(
     retries=3,
@@ -120,7 +120,7 @@ def track(conn, state, service, path, target):
 def main():
     logging.basicConfig(level=logging.INFO)
     config = configparser.ConfigParser()
-    config.read('config.ini')
+    config.read('/data/home/root/dbus-pvoutput/config.ini')
 
     api_key = get_api_key(config)
     city_id = get_city_id(config)
